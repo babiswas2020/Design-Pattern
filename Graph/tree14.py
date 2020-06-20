@@ -4,6 +4,14 @@ class Node:
       self.left=None
       self.right=None
 
+   def inorder(self):
+      if self:
+         if self.left:
+            self.left.inorder()
+         print(self.value)
+         if self.right:
+            self.right.inorder()
+
    def level_order_trav(self):
        queue=[]
        queue.append(self)
@@ -20,7 +28,7 @@ class Node:
          if self.left:
             self.left.insert(value)
          else:
-            self.right=Node(value)
+            self.left=Node(value)
       elif self.value<value:
          if self.right:
             self.right.insert(value)
@@ -43,3 +51,6 @@ if __name__=="__main__":
    node.insert(9)
    print("The level order traversal of the tree is")
    node.level_order_trav()
+   print("The inorder traversal of the treee")
+   node.inorder()
+
